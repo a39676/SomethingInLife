@@ -3,7 +3,5 @@ from django.shortcuts import render
 
 
 def hello(request):
-    return HttpResponse("Hello world in polls.")
+    return HttpResponse("Hello world in polls2")
 
-def testGitHub():
-	pass
