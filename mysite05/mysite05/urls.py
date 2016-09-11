@@ -5,8 +5,11 @@ from mysite05.views import hello, current_datetime
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^poll/', include('polls.urls')),
     url(r'^hello/', hello),
     url(r'^time/', current_datetime),
     
 
 ]
+
+
