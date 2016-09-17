@@ -2,7 +2,8 @@
 
 
 A start 2016-09-08
-
 just want to change my life
+I hope some small and beautiful. 
 
-I have so many words
+2016-09-17
+try to fix conflict
