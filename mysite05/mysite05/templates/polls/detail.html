@@ -1,6 +1,29 @@
+
+
 <h1>{{ question.question_text }}</h1>
-<ul>
-{% for choice in question.choice_set.all %}
-    <li>{{ choice.choice_text }}</li>
-{% endfor %}
-</ul>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+  <!-- action= url中polls命名空间下的vote链接 传递参数question.id 以post方式 -->
+  <form action="{% url 'polls:vote' question.id %}" method="post">
+    <!-- csrf_token
+      This tag is used for CSRF protection, as described in the documentation for 
+      Cross Site Request Forgeries. 
+      防跨站请求伪造 (生成随机数列)  
+
+      类似:
+      <input type="hidden" name="csrfmiddlewaretoken" value="MTUQk6Rn68GqFiwdiXMaJMbZJmbOKXmWP4k4B3NvCzltDaNgpdhwINzSmlstGp1P">
+    -->
+    {% csrf_token %}
+
+
+    {% for choice in question.choice_set.all %}
+      <!-- forloop.counter 计数 -->
+      <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
+      <label for="choice{{ forloop.counter }}"> {{ choice.choice_text }} (choice_id: {{choice.id}})</label>
+      <br />
+    {% endfor %}
+
+    <input type="submit" value="Vote" />
+
+  </form>

@@ -5,7 +5,9 @@ from django.conf.urls import include, url
 
 from . import views
 
-# app_name = 'polls'
+# 给定命名空间 有此 模板中的detail/results等 可使用 polls:detail/ polls:results
+app_name = 'polls'
+
 urlpatterns = [
     # url(r'^$', views.hello, name='hello'),
     url(r'^$', views.index, name='index'),
