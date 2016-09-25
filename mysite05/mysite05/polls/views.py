@@ -5,7 +5,7 @@ from django.template import loader
 from .models import Question
 
 def hello(request):
-    return HttpResponse("Hello world in polls2")
+    return HttpResponse("Hello world in polls")
 
 def detail(request, question_id):
     # try:
@@ -23,7 +23,7 @@ def vote(request, question_id):
     return HttpResponse("You're voting on question %s." % question_id)
 
 def index(request):
-    latest_question_list = Question.objects.order_by('-pub_date')[:5]
+    latest_question_list = Question.objects.order_by('-pub_date')[:10]
     template = loader.get_template('polls/index.html')
     context = {
         'latest_question_list': latest_question_list,
